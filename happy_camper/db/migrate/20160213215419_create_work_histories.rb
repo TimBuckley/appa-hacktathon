@@ -11,6 +11,6 @@ class CreateWorkHistories < ActiveRecord::Migration
       t.timestamps null: false
     end
 
-    add_column :graduates, :string, :linkedin_url
+    add_column :graduates, :linkedin_url, :string
   end
 end
