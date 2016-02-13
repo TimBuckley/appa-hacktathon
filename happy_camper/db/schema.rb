@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160213220800) do
+ActiveRecord::Schema.define(version: 20160213221250) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,6 +27,17 @@ ActiveRecord::Schema.define(version: 20160213220800) do
 
   add_index "capstones", ["graduate_id"], name: "index_capstones_on_graduate_id", using: :btree
 
+  create_table "companies", force: :cascade do |t|
+    t.string   "uuid",           null: false
+    t.string   "name"
+    t.string   "linkedin_url"
+    t.string   "crunchbase_url"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
+
+  add_index "companies", ["uuid"], name: "index_companies_on_uuid", using: :btree
+
   create_table "github_data", force: :cascade do |t|
     t.integer  "graduate_id",          null: false
     t.string   "url"
@@ -40,7 +51,7 @@ ActiveRecord::Schema.define(version: 20160213220800) do
   add_index "github_data", ["graduate_id"], name: "index_github_data_on_graduate_id", using: :btree
 
   create_table "graduates", force: :cascade do |t|
-    t.string   "graduate_uuid",                               null: false
+    t.string   "uuid",                                        null: false
     t.string   "full_name"
     t.string   "picture_url"
     t.string   "month_attended"
@@ -52,7 +63,7 @@ ActiveRecord::Schema.define(version: 20160213220800) do
     t.string   "linkedin_url"
   end
 
-  add_index "graduates", ["graduate_uuid"], name: "index_graduates_on_graduate_uuid", using: :btree
+  add_index "graduates", ["uuid"], name: "index_graduates_on_uuid", using: :btree
 
   create_table "work_histories", force: :cascade do |t|
     t.integer  "graduate_id", null: false
