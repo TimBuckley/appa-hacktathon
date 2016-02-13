@@ -21,18 +21,18 @@ const GradDetail = React.createClass({
       github_url: 'github.com/fpcyan',
       personal_website_url: 'fionaprotagonist.com',
       current_company: {
-        company_uuid: 'same-stuff-its-a-uuid'
+        company_uuid: 'same-stuff-its-a-uuid',
         name: 'AppAcademy',
         title: 'Software Engineer',
         date_hired: {
-          month: 'December'
+          month: 'December',
           year: 2015
         },
         location: 'New York City'
       },
       past_companies: [
        {
-         company_uuid: 'a-different-uuid'
+         company_uuid: 'a-different-uuid',
          name: 'BlahBlah',
          title: "TA",
          date_hired: {
@@ -43,18 +43,50 @@ const GradDetail = React.createClass({
       ]
     }
   },
-  render: function() {
+  currentCompany: function() {
+    const { current_company } = this.initialState()
+    if (!current_company || current_company === null || current_company === undefined) {
+      return (
+        <View style={styles.currentCompany}>
+          <Text>(No current company)</Text>
+        </View>)
+    }
 
-    const avatarUri = "http://i.imgur.com/UJwz62B.gif"
+    const { company_uuid, name, title, date_hired, location } = current_company
+    const { month, year } = date_hired
+    return (
+      <View style={styles.currentCompany}>
+        <Text>Name: {name}</Text>
+        <Text>Title: {title}</Text>
+        <Text>Hired: {month} - {year}</Text>
+        <Text>Location: {location}</Text>
+      </View>
+    )
+  },
+
+  render: function() {
+    const {
+      first_name,
+      last_name,
+      uuid,
+      picture_url,
+      date_attended,
+      bootcamp_name,
+      linkedin_url,
+      github_url,
+      personal_website_url,
+      past_companies
+    } = this.initialState()
 
     return(
       <View style={styles.container}>
-        <Text>My name</Text>
+        <Text>{last_name}, {first_name}</Text>
         <Image
           style={styles.avatar}
-          source={{uri: avatarUri}}
+          source={{uri: picture_url}}
         />
-        <Text>Anybody here?</Text>
+        <Text>Current Company:</Text>
+        {this.currentCompany()}
       </View>
     )
   }
@@ -72,6 +104,15 @@ const styles = StyleSheet.create({
   avatar: {
     width: 100,
     height: 100
+  },
+  sites: {
+
+  },
+  currentCompany: {
+
+  },
+  pastCompanies: {
+
   }
 })
 
