@@ -11,6 +11,6 @@ class CreateGithubData < ActiveRecord::Migration
     end
 
     remove_column :graduates, :last_name
-    change_column :graduates, :first_name, :full_name
+    rename_column :graduates, :first_name, :full_name
   end
 end
