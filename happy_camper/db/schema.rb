@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160213214844) do
+ActiveRecord::Schema.define(version: 20160213215419) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -38,8 +38,23 @@ ActiveRecord::Schema.define(version: 20160213214844) do
     t.string   "bootcamp_location", default: "San Francisco"
     t.datetime "created_at",                                  null: false
     t.datetime "updated_at",                                  null: false
+    t.string   "linkedin_url"
   end
 
   add_index "graduates", ["graduate_uuid"], name: "index_graduates_on_graduate_uuid", using: :btree
+
+  create_table "work_histories", force: :cascade do |t|
+    t.integer  "graduate_id", null: false
+    t.integer  "company_id",  null: false
+    t.boolean  "current"
+    t.string   "month_hired"
+    t.integer  "year_hired"
+    t.string   "location"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "work_histories", ["company_id"], name: "index_work_histories_on_company_id", using: :btree
+  add_index "work_histories", ["graduate_id"], name: "index_work_histories_on_graduate_id", using: :btree
 
 end
