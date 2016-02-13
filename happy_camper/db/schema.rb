@@ -11,15 +11,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160213214148) do
+ActiveRecord::Schema.define(version: 20160213214844) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "github_data", force: :cascade do |t|
+    t.integer  "graduate_id",          null: false
+    t.string   "url"
+    t.string   "username"
+    t.integer  "number_of_repos"
+    t.string   "personal_website_url"
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+  end
+
+  add_index "github_data", ["graduate_id"], name: "index_github_data_on_graduate_id", using: :btree
+
   create_table "graduates", force: :cascade do |t|
     t.string   "graduate_uuid",                               null: false
-    t.string   "first_name"
-    t.string   "last_name"
+    t.string   "full_name"
     t.string   "picture_url"
     t.string   "month_attended"
     t.integer  "year_attended"
