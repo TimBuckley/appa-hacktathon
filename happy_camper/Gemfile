@@ -1,3 +1,5 @@
+source 'http://rubygems.org'
+
 gem 'rails', '4.2.5'
 gem 'pg'
 gem 'jbuilder', '~> 2.0'
@@ -5,6 +7,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'annotate'
 gem 'rake', '~> 10.5'
 gem 'mechanize', '~> 2.7'
+gem 'figaro'
 
 group :developer, :test do
   gem 'byebug'
