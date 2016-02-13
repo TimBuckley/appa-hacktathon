@@ -17,7 +17,7 @@ Output:
     first_name: 'Fiona',
     last_name: 'Conn',
     uuid: 'th1S-isau-uidf-orfi-onac',
-    picture_url: 'http://s3-us-west-2.amazonaws.com/aa-progress-tracker/students/avatars/000/000/926/medium/fiona-conn.jpg?1443627795',
+    picture_url: 'https://media.licdn.com/mpr/mpr/shrink_200_200/AAEAAQAAAAAAAAX0AAAAJGUxOTU3MjhjLTBiZmYtNDBmMi04NTRhLWZmOTJjMDZiZjNhMg.jpg',
     date_attended: {
       month: 'September'
       year: '2015'
