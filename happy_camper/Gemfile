@@ -1,0 +1,32 @@
+gem 'rails', '4.2.5'
+gem 'pg'
+gem 'jbuilder', '~> 2.0'
+gem 'sdoc', '~> 0.4.0', group: :doc
+gem 'annotate'
+gem 'rake', '~> 10.5'
+gem 'mechanize', '~> 2.7'
+
+group :developer, :test do
+  gem 'byebug'
+  gem "rspec", "~> 3.1.0"
+  gem "rspec-rails"
+end
+
+group :development do
+  gem 'quiet_assets'
+  gem 'pry-rails'
+  gem 'better_errors'
+  gem 'binding_of_caller'
+
+  # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
+  gem 'spring'
+end
+
+group :production do
+  gem 'rails_12factor'
+end
+
+group :test do
+  gem 'capybara'
+  gem 'factory_girl_rails'
+end
