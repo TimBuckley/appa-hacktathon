@@ -10,9 +10,9 @@ This is version 1 of the api. All updates to the api will be backwards compatibl
 
 GraduateControllers#index - 'api/graduates/index'
 
-  Output:
-  ```
-  {[
+Output:
+```
+{[
   {
     first_name: 'Fiona',
     last_name: 'Conn',
@@ -30,12 +30,12 @@ GraduateControllers#index - 'api/graduates/index'
   }
 ]}
 
-    ```
+```
 
 Graduatecontrollers#show - 'api/graduates/graduate_uuid/show'
 
-  Output:
-  ```
+Output:
+```
 {
   first_name: 'Fiona',
   last_name: 'Conn',
@@ -71,12 +71,12 @@ Graduatecontrollers#show - 'api/graduates/graduate_uuid/show'
    }
   ]
 }
-  ```
+```
 
 CompaniesController#index - 'api/companies/index'
 
-  Output:
-  ```
+Output:
+```
 {[
   {
     company_uuid: 'this-is-another-uuid',
@@ -89,4 +89,4 @@ CompaniesController#index - 'api/companies/index'
     ]
   }
 ]}
-  ```
+```
