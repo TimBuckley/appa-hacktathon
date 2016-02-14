@@ -4,8 +4,8 @@ class Graduate < ActiveRecord::Base
   validates_each :picture_url, :linkedin_url, :website_url, :github_url, :capstone_url do |record, attr, value|
     record.errors.add(attr, 'must be a valid url') unless value.nil? || value =~ /^https?:\/\//
   end
-  validates :year, length: { is: 4, allow_nil: true }
-  validates :month, length: { in: 3..9, allow_nil: true }
+  validates :year_attended, length: { is: 4, allow_nil: true }
+  validates :month_attended, length: { in: 3..9, allow_nil: true }
 
   after_initialize :ensure_uuid, :clean_full_name
   after_create :make_github_account, :make_capstone
