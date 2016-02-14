@@ -7,7 +7,7 @@ class AAScraper
 
   def load_graduates
     cohort_pages.each do |cp|
-      year, month, city = cohort_details(cp)
+      month, year, city = cohort_details(cp)
       cp.search('.student').each do |s|
         student_details = student_details(s)
 
