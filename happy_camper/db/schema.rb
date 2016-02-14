@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160213223831) do
+ActiveRecord::Schema.define(version: 20160214030126) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -42,7 +42,7 @@ ActiveRecord::Schema.define(version: 20160213223831) do
     t.integer  "graduate_id",     null: false
     t.string   "url"
     t.string   "username"
-    t.integer  "number_of_repos"
+    t.string   "number_of_repos"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
   end
@@ -53,14 +53,13 @@ ActiveRecord::Schema.define(version: 20160213223831) do
     t.string   "uuid",                                        null: false
     t.string   "full_name"
     t.string   "picture_url"
-    t.string   "month_attended"
-    t.integer  "year_attended"
     t.string   "bootcamp_name",     default: "App Academy"
     t.string   "bootcamp_location", default: "San Francisco"
     t.datetime "created_at",                                  null: false
     t.datetime "updated_at",                                  null: false
     t.string   "linkedin_url"
     t.string   "website_url"
+    t.date     "cohort_date"
   end
 
   add_index "graduates", ["uuid"], name: "index_graduates_on_uuid", using: :btree
@@ -69,11 +68,10 @@ ActiveRecord::Schema.define(version: 20160213223831) do
     t.integer  "graduate_id", null: false
     t.integer  "company_id",  null: false
     t.boolean  "current"
-    t.string   "month_hired"
-    t.integer  "year_hired"
     t.string   "location"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.datetime "date_hired"
   end
 
   add_index "work_histories", ["company_id"], name: "index_work_histories_on_company_id", using: :btree

@@ -10,6 +10,15 @@ This is version 1 of the api. All updates to the api will be backwards compatibl
 
 GraduateControllers#index - 'api/graduates/index'
 
+Filters:
+  * month: 3 letter code e.g. 'dec'
+  * year: e.g. '2014'
+  * bootcamp_location: 'NY' or 'SF'
+  * employed: boolean
+  * employment_location: 2 letter city codes, currently only 'NY' or 'SF'
+
+To filter, send up params in the header, e.g.
+`params: { 'month': 'dec', 'year': '2015', 'employed':'true' }`
 Output:
 ```
 {[
