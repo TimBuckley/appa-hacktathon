@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160214042451) do
+ActiveRecord::Schema.define(version: 20160214055736) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -35,7 +35,7 @@ ActiveRecord::Schema.define(version: 20160214042451) do
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
     t.string   "website"
-    t.string   "logo"
+    t.string   "domain"
   end
 
   add_index "companies", ["uuid"], name: "index_companies_on_uuid", using: :btree
