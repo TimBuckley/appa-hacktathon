@@ -12,7 +12,7 @@ class AAScraper
         student_details = student_details(s)
 
         Graduate.create({
-          full_name: student_details[:name],
+          full_name: student_details[:name].squeeze(" "),
           picture_url: student_details[:picture_url],
           month_attended: month,
           year_attended: year,
