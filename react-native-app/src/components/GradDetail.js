@@ -123,21 +123,24 @@ const GradDetail = React.createClass({
     )
   },
 
+  _labelUrl: function(label, url) {
+    if (!url || url === null || url === undefined) {
+      return;
+    }
+    return (
+      <View style={styles.linkPairs}>
+        <Text style={styles.label}>{label}: </Text>
+        <Text style={styles.link}>{url}</Text>
+      </View>
+    )
+  },
+
   userLinks: function(linkedin_url, github_url, personal_website_url) {
     return (
       <View style={styles.sites}>
-        <View style={styles.linkPairs}>
-          <Text style={styles.label}>LinkedIn: </Text>
-          <Text style={styles.link}>{linkedin_url}</Text>
-        </View>
-        <View style={styles.linkPairs}>
-          <Text style={styles.label}>Github: </Text>
-          <Text style={styles.link}>{github_url}</Text>
-        </View>
-        <View style={styles.linkPairs}>
-          <Text style={styles.label}>Personal: </Text>
-          <Text style={styles.link}>{personal_website_url}</Text>
-        </View>
+        {this._labelUrl('Linked In:', linkedin_url)}
+        {this._labelUrl('Github:', github_url)}
+        {this._labelUrl('Personal:', personal_website_url)}
       </View>
     )
   },
@@ -146,15 +149,16 @@ const GradDetail = React.createClass({
     const {
       first_name,
       last_name,
-      uuid,
-      current_company,
       picture_url,
-      date_attended,
-      bootcamp_name,
+      uuid,
 
       linkedin_url,
       github_url,
       personal_website_url,
+
+      bootcamp_name,
+      date_attended,
+      current_company,
 
       past_companies } = this.props.gradDetail || this.initialState()
 
