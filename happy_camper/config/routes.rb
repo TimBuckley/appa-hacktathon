@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  namespace :api do
+  namespace :api, defaults: { format: :json } do
     resources :graduates, only: [:index, :show]
     resources :companies, only: [:index]
   end
