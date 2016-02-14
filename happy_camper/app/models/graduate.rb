@@ -12,7 +12,14 @@ class Graduate < ActiveRecord::Base
   has_one :capstone
   has_many :work_histories
 
+
+  scope :post_bootcamp_work, -> { joins(:work_histories).where("work_histories.date_hired > graduates.cohort_date") }
+
   attr_accessor :github_url, :capstone_url
+
+  def past_companies
+    work_histories.where(current: false, first_job: false)
+  end
 
   private
 

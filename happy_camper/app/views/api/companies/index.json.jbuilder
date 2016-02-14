@@ -3,5 +3,6 @@ json.array! @companies do |company|
   json.name company.name
   json.website company.website
   json.domain company.domain
-  json.number_of_grads 1
+  json.number_of_grads company.number_of_grads
+  json.locations company.locations
 end
