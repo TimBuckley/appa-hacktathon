@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160214030126) do
+ActiveRecord::Schema.define(version: 20160214031952) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,6 +34,8 @@ ActiveRecord::Schema.define(version: 20160214030126) do
     t.string   "crunchbase_url"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
+    t.string   "website"
+    t.string   "logo"
   end
 
   add_index "companies", ["uuid"], name: "index_companies_on_uuid", using: :btree
