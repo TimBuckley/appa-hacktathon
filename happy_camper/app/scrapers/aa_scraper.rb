@@ -1,6 +1,6 @@
 class AAScraper
 
-  def initialize(base_url)
+  def initialize(base_url="http://progress.appacademy.io/employers")
     @agent = Mechanize.new
     @page = @agent.get(base_url)
   end
@@ -17,6 +17,9 @@ class AAScraper
           month_attended: month,
           year_attended: year,
           bootcamp_location: city,
+          linkedin_url: student_details["LinkedIn"],
+          github_url: student_details["GitHub"],
+          website_url: student_details["Website"],
         })
       end
     end
@@ -29,6 +32,7 @@ class AAScraper
   end
 
   def cohort_details(cohort_page)
+    # returns [month, year, city]
     cohort_page.search(".header-class").text.split[-3..-1]
   end
 
