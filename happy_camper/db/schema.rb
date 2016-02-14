@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160214001058) do
+ActiveRecord::Schema.define(version: 20160214024833) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -53,14 +53,13 @@ ActiveRecord::Schema.define(version: 20160214001058) do
     t.string   "uuid",                                        null: false
     t.string   "full_name"
     t.string   "picture_url"
-    t.string   "month_attended"
-    t.string   "year_attended"
     t.string   "bootcamp_name",     default: "App Academy"
     t.string   "bootcamp_location", default: "San Francisco"
     t.datetime "created_at",                                  null: false
     t.datetime "updated_at",                                  null: false
     t.string   "linkedin_url"
     t.string   "website_url"
+    t.date     "cohort_date"
   end
 
   add_index "graduates", ["uuid"], name: "index_graduates_on_uuid", using: :btree
