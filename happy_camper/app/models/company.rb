@@ -6,6 +6,14 @@ class Company < ActiveRecord::Base
 
   has_many :work_histories
 
+  def number_of_grads
+    work_histories.count
+  end
+
+  def locations
+    work_histories.location.uniq
+  end
+
   private
 
   def set_domain
