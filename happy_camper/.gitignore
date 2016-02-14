@@ -19,4 +19,4 @@
 .DS_Store
 .idea
 .keep
-../.byebug_history
+*.byebug_history

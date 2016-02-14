@@ -3,11 +3,11 @@ json.extract!( @graduate, :uuid, :full_name, :picture_url, :bootcamp_name, :boot
 json.date_attended @graduate.cohort_date
 json.personal_website_url @graduate.website_url
 json.github_url @graduate.github_account.url
-json.current_company do
-  json.company_uuid json.null!
-  json.name json.null!
-  json.title json.null!
-  json.date_hired json.null!
+json.set! :current_company do
+  json.company_uuid nil
+  json.name nil
+  json.title nil
+  json.date_hired nil
 end
 
 json.past_companies []
