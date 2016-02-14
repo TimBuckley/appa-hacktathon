@@ -2,8 +2,6 @@
 # OR
 # WorkHistory.create(:graduate_id, :company_id, :title, ...)
 class WorkHistory < ActiveRecord::Base
-  validates_uniqueness_of :current, scope: :graduate_id
-
   belongs_to :company
   belongs_to :graduate
 
