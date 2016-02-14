@@ -47,6 +47,7 @@
     "key-mirror": "^1.0.1",
     "react-native": "^0.18.1",
     "react-native-gifted-spinner": "0.0.3",
+    "react-native-router-flux": "^2.2.2",
     "react-native-simple-store": "^0.1.0",
     "react-native-simpledialog-android": "^1.0.2",
     "react-native-tab-navigator": "^0.2.15",
