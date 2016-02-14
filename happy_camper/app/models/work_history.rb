@@ -7,7 +7,7 @@ class WorkHistory < ActiveRecord::Base
   belongs_to :company
   belongs_to :graduate
 
-  attr_accessor :company_name, :company_website
+  attr_accessor :company_name, :company_website, :company_linkedin
 
   after_initialize :associate_company
 
@@ -20,6 +20,6 @@ class WorkHistory < ActiveRecord::Base
   end
 
   def make_company
-    Company.create(name: company_name.titleize, website: company_website)
+    Company.create(name: company_name.titleize, website: company_website, linkedin_url: company_linkedin)
   end
 end
