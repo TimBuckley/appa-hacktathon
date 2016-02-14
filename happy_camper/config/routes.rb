@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+
+  namespace :api do
+    resources :graduates, only: [:index, :show]
+    resources :companies, only: [:index]
+  end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
