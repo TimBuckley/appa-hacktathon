@@ -22,7 +22,9 @@ import configureStore from './lib/configureStore';
  */
 import {setPlatform, setVersion} from './reducers/device/deviceActions';
 import {setStore} from './reducers/global/globalActions';
-import { GradDetail } from './components/GradDetail';
+import GradDetail from './components/GradDetail'
+import Grad from './components/Grad'
+import GradList from './components/GradList'
 
 
 /**
@@ -78,7 +80,7 @@ export default function native(platform) {
        */
       return (
         <Provider store={store}>
-          <GradDetail />
+          <GradList />
         </Provider>
       );
 
