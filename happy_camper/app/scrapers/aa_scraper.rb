@@ -1,15 +1,13 @@
 class AAScraper
-
   def initialize(base_url="http://progress.appacademy.io/employers")
-    @agent = Mechanize.new
-    @page = @agent.get(base_url)
+    @page = Mechanize.new.get(base_url)
   end
 
   def load_graduates
     cohort_pages.each do |cp|
       month, year, city = cohort_details(cp)
-      cp.search('.student').each do |s|
-        student_details = student_details(s)
+      cp.search('.student').each do |student|
+        student_details = student_details(student)
 
         Graduate.create({
           full_name: student_details[:name].squeeze(" "),
