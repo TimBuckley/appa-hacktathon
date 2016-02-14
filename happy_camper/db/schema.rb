@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160213221250) do
+ActiveRecord::Schema.define(version: 20160213223831) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -39,13 +39,12 @@ ActiveRecord::Schema.define(version: 20160213221250) do
   add_index "companies", ["uuid"], name: "index_companies_on_uuid", using: :btree
 
   create_table "github_data", force: :cascade do |t|
-    t.integer  "graduate_id",          null: false
+    t.integer  "graduate_id",     null: false
     t.string   "url"
     t.string   "username"
     t.integer  "number_of_repos"
-    t.string   "personal_website_url"
-    t.datetime "created_at",           null: false
-    t.datetime "updated_at",           null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
   end
 
   add_index "github_data", ["graduate_id"], name: "index_github_data_on_graduate_id", using: :btree
@@ -61,6 +60,7 @@ ActiveRecord::Schema.define(version: 20160213221250) do
     t.datetime "created_at",                                  null: false
     t.datetime "updated_at",                                  null: false
     t.string   "linkedin_url"
+    t.string   "website_url"
   end
 
   add_index "graduates", ["uuid"], name: "index_graduates_on_uuid", using: :btree

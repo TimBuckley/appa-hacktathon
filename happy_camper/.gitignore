@@ -14,3 +14,9 @@
 
 # Ignore application configuration
 /config/application.yml
+
+# Ignore this stuff
+.DS_Store
+.idea
+.keep
+../.byebug_history
