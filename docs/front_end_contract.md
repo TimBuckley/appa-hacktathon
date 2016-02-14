@@ -43,16 +43,15 @@ GraduateControllers#show - 'api/graduates/graduate_uuid
 Output:
 ```
 {
-  full_name: "Fiona Conn",
   uuid: 'th1S-isau-uidf-orfi-onac',
+  full_name: "Fiona Conn",
   picture_url: 'http://s3-us-west-2.amazonaws.com/aa-progress-tracker/students/avatars/000/000/926/medium/fiona-conn.jpg?1443627795',
   bootcamp_name: 'AppAcademy',
-  bootcamp_location: "NY"
-  date_attended: DateTimeObject,
-  
+  bootcamp_location: "NYC"
   linkedin_url: 'example.com/fionaconn',
-  github_url: 'github.com/fpcyan',
+  date_attended: DateTimeObject,
   personal_website_url: 'fionaprotagonist.com',
+  github_url: 'github.com/fpcyan',
   current_company: {
     company_uuid: 'same-stuff-its-a-uuid'
     name: 'AppAcademy',
