@@ -81,8 +81,11 @@ Output:
 ```
 {[
   {
-    company_uuid: 'this-is-another-uuid',
-    company_name: 'Google',
+    uuid: 'this-is-another-uuid',
+    name: 'Google',
+    website: 'google.com',
+    linkedin_url: 'linkedin.com/google',
+    logo: 'google.jpg',
     number_of_grads: 10,
     locations: [
     'New York City',
