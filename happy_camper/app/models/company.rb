@@ -11,7 +11,7 @@ class Company < ActiveRecord::Base
   end
 
   def locations
-    work_histories.location.uniq
+    nil
   end
 
   private
