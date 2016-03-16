@@ -77,6 +77,9 @@ GEM
       activesupport (>= 3.0.0, < 5.1)
       multi_json (~> 1.2)
     json (1.8.3)
+    kaminari (0.14.1)
+      actionpack (>= 3.0.0)
+      activesupport (>= 3.0.0)
     linkedin-scraper (1.0.4)
       mechanize (~> 2)
     loofah (2.0.3)
@@ -200,6 +203,7 @@ DEPENDENCIES
   factory_girl_rails
   figaro
   jbuilder (~> 2.0)
+  kaminari
   linkedin-scraper (~> 1.0.4)
   mechanize (~> 2.7)
   pg
@@ -212,6 +216,3 @@ DEPENDENCIES
   rspec-rails
   sdoc (~> 0.4.0)
   spring
-
-BUNDLED WITH
-   1.11.2

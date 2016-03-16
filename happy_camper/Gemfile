@@ -9,6 +9,7 @@ gem 'rake', '~> 10.5'
 gem 'mechanize', '~> 2.7'
 gem 'figaro'
 gem 'linkedin-scraper', '~> 1.0.4'
+gem 'kaminari'
 
 group :developer, :test do
   gem 'byebug'

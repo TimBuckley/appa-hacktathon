@@ -12,13 +12,21 @@ class Graduate < ActiveRecord::Base
   has_one :capstone
   has_many :work_histories
 
-
-  scope :post_bootcamp_work, -> { joins(:work_histories).where("work_histories.date_hired > graduates.cohort_date") }
-
+  scope :by_bootcamp, ->(bootcamp) { where(bootcamp_location: bootcamp) if bootcamp}
+  scope :by_employed, ->(employed) {
+    if employed == 'true'
+      joins(:work_histories).where("work_histories.date_hired > graduates.cohort_date")
+    elsif employed == 'false'
+      joins(:work_histories).where("NOT EXISTS work_histories.date_hired > graduates.cohort_date")
+    end
+  }
+  scope :by_year, ->(year) { where('extract(year from cohort_date) = ?', year.to_i) if year && year.to_i.between?(2013, 2016) }
+  scope :by_month, ->(month) { where('extract(month from cohort_date) = ?', month.to_i) if month && month.to_i.between?(1, 12) }
   attr_accessor :github_url, :capstone_url
 
-  def past_companies
-    work_histories.where(current: false, first_job: false)
+  def self.by_employment(employed)
+    return if employed.nil?
+    employed == 'true' ? post_bootcamp_work : not_hired
   end
 
   private
