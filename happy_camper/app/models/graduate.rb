@@ -17,17 +17,12 @@ class Graduate < ActiveRecord::Base
     if employed == 'true'
       joins(:work_histories).where("work_histories.date_hired > graduates.cohort_date")
     elsif employed == 'false'
-      joins(:work_histories).where("NOT EXISTS work_histories.date_hired > graduates.cohort_date")
+      joins(:work_histories).where("linkedin_url is NOT null AND NOT work_histories.date_hired > graduates.cohort_date")
     end
   }
   scope :by_year, ->(year) { where('extract(year from cohort_date) = ?', year.to_i) if year && year.to_i.between?(2013, 2016) }
   scope :by_month, ->(month) { where('extract(month from cohort_date) = ?', month.to_i) if month && month.to_i.between?(1, 12) }
   attr_accessor :github_url, :capstone_url
-
-  def self.by_employment(employed)
-    return if employed.nil?
-    employed == 'true' ? post_bootcamp_work : not_hired
-  end
 
   private
 
